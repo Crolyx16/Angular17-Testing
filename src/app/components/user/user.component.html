@@ -1,0 +1,22 @@
+<section>
+<h1>Hola {{username}}, eres {{empleo}}</h1>
+@if (usuarioExiste) {
+  <p>Felicidades! Existes</p>
+} @else {
+  <p>Lo sentimos, pero parece que no existes</p>
+}
+</section>
+<section>
+<h2>Estos son tus sistemas operativos:</h2>
+<ul>
+@for (os of sistemasOperativos; track os.id) {
+  <li (mouseover)="onMouseOver(os.name)">{{os.name}}</li>
+}
+<div class="divOs">Estás pasando el ratón sobre el sistema operativo: {{osMarcado}}</div>
+</ul>
+</section>
+<section>
+  <div class="divEditable" [contentEditable]="esEditable"></div>
+  <button (click)="emitirAlPadre()">Mensaje al componente padre!</button>
+</section>
+
